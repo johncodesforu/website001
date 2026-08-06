@@ -1,0 +1,6 @@
+{
+  "name": "Turning Pages Together",
+  "description": "A nonprofit organization dedicated to improving literacy by collecting and distributing free books to children, families, schools, and underserved communities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
