@@ -99,7 +99,19 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         </div>
 
         {/* POSTS GRID */}
-        {filteredPosts.length === 0 ? (
+        {posts.length === 0 ? (
+          <div className="text-center py-20 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-8 space-y-4 max-w-xl mx-auto shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center">
+              <FileText className="w-6 h-6" />
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg">
+              No updates have been published yet. Check back soon!
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-md mx-auto">
+              Our team is preparing upcoming announcements regarding book drives, school distributions, and community literacy initiatives.
+            </p>
+          </div>
+        ) : filteredPosts.length === 0 ? (
           <div className="text-center py-16 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-8 space-y-3">
             <Filter className="w-8 h-8 text-slate-400 mx-auto" />
             <h3 className="font-bold text-slate-900 dark:text-white text-base">No matching updates found</h3>

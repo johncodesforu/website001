@@ -25,109 +25,11 @@ const defaultDb = {
   adminPassword: process.env.ADMIN_PASSWORD || "8BWA8BWA!",
   adminEmail: process.env.ADMIN_EMAIL || "turningpagestogetherofficial@gmail.com",
   sessions: [] as string[],
-  posts: [
-    {
-      id: "post-1",
-      title: "Launch Announcement: Turning Pages Together Begins Inaugural Bay Area Literacy Campaign",
-      slug: "launch-announcement-inaugural-literacy-campaign",
-      summary: "We are excited to launch Turning Pages Together, bringing free children's books to Title I classrooms, neighborhood micro-libraries, and underserved communities.",
-      body: `We are thrilled to officially announce the launch of **Turning Pages Together**! Our mission is simple yet powerful: ensure every child has access to inspiring, age-appropriate books regardless of family income or zip code.
-
-### Addressing the Literacy Gap
-
-For many children in under-resourced neighborhoods, access to age-appropriate reading material is severely limited. Research shows that children without access to home libraries face significant hurdles in early reading achievement.
-
-Through our regional collection hubs, volunteer sorting teams, and school partnerships, every donated book will be inspected, sanitized, categorized by reading level, and placed directly into children's hands.
-
-### Our Initial Focus Areas
-
-1. **Title I Classroom Library Grants**: Supplying elementary teachers with curated 50-book reading corners.
-2. **Community Micro-Libraries**: Installing weather-proof outdoor book boxes in neighborhood park plazas and community centers.
-3. **Family Literacy Backpack Kits**: Packing personalized storybook bundles for pre-K and early readers.
-
-### How You Can Get Involved Today
-
-We invite parents, educators, students, and community members to join our launch effort! You can donate books at our Bay Area collection hubs, host a book drive at your school or workplace, or apply to volunteer with us.`,
-      coverImage: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1200",
-      author: "Maya Lin, Founder & Executive Director",
-      publishedAt: "2026-08-01T10:00:00Z",
-      category: "News",
-      status: "published",
-      actionLinks: [
-        {
-          id: "al-1",
-          label: "Host a Book Drive Bin (Google Form)",
-          url: "https://forms.google.com",
-          type: "google_form"
-        },
-        {
-          id: "al-2",
-          label: "Donate Gently Used Books",
-          url: "/donate-books",
-          type: "donation"
-        }
-      ]
-    },
-    {
-      id: "post-2",
-      title: "Introducing Our Community Micro-Library Initiative",
-      slug: "introducing-community-micro-library-initiative",
-      summary: "Expanding walk-up access to books through weather-proof neighborhood book boxes placed in park plazas and community centers.",
-      body: `Literacy should never depend on zip code or income. That's why Turning Pages Together is rolling out our **Community Micro-Library Initiative**—installing wooden, weather-proof book boxes in accessible neighborhood spaces.
-
-### Built by Volunteers, Sustained by Community
-
-Operated on a simple *Take a book, share a book* model, our micro-libraries will provide 24/7 access to early readers, young adult fiction, and bilingual storybooks.
-
-### Become a Micro-Library Steward
-
-We are looking for dedicated neighborhood stewards and volunteer teams to help maintain and restock micro-library locations. Apply today to become a steward or help build collection boxes!`,
-      coverImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=1200",
-      author: "David Chen, Community Partnerships",
-      publishedAt: "2026-07-25T14:30:00Z",
-      category: "Book Drives",
-      status: "published",
-      actionLinks: [
-        {
-          id: "al-3",
-          label: "Apply to Steward a Micro-Library",
-          url: "/get-involved",
-          type: "volunteer"
-        }
-      ]
-    },
-    {
-      id: "post-3",
-      title: "Empowering Young Readers: Our STEM & Diversity Book Initiative",
-      slug: "stem-and-diversity-book-initiative",
-      summary: "Curating culturally responsive and STEM-focused literature so every child can see themselves as future scientists, authors, and leaders.",
-      body: `Representation matters deeply in children's literature. When children see characters who look like them, share their cultural heritage, or tackle modern scientific mysteries, their engagement and confidence soar.
-
-As part of our founding commitment, Turning Pages Together is curating **STEM & Diversity Book Kits** for young readers.
-
-### Key Highlights of the Initiative:
-- **Biographies of Diverse Trailblazers**: Inspiring true stories of mathematicians, engineers, and environmentalists.
-- **Bilingual & Multilingual Editions**: Spanish, Mandarin, and Tagalog paired editions to support English Language Learners and families reading together at home.
-- **Interactive Science Storybooks**: Engaging narratives that make learning fun and accessible.`,
-      coverImage: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=1200",
-      author: "Turning Pages Together Team",
-      publishedAt: "2026-07-10T09:15:00Z",
-      category: "News",
-      status: "published",
-      actionLinks: [
-        {
-          id: "al-5",
-          label: "Get Involved with Our Mission",
-          url: "/get-involved",
-          type: "volunteer"
-        }
-      ]
-    }
-  ],
+  posts: [] as any[],
   contacts: [] as any[],
   donationRequests: [] as any[],
   volunteers: [] as any[],
-  pageViews: 120
+  pageViews: 0
 };
 
 // Helper function to read DB

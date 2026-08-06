@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BookOpen, Heart, Users, School, Building2, Sparkles, ArrowRight, CheckCircle2, Star, Calendar, Quote, ChevronRight } from "lucide-react";
+import { BookOpen, Heart, Users, School, Building2, Sparkles, ArrowRight, CheckCircle2, Star, Calendar, Quote, ChevronRight, FileText } from "lucide-react";
 import { BlogPost } from "../types";
 
 interface HomePageProps {
@@ -223,52 +223,64 @@ export const HomePage: React.FC<HomePageProps> = ({ posts, onNavigate, onSelectP
         </div>
 
         {/* Blog Post Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.slice(0, 3).map((post) => (
-            <article
-              key={post.id}
-              onClick={() => onSelectPost(post)}
-              className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer group"
-            >
-              <div className="h-48 w-full relative overflow-hidden bg-slate-900">
-                <img
-                  src={post.coverImage}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20">
-                    {post.category}
-                  </span>
+        {posts.length === 0 ? (
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-10 text-center border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+            <FileText className="w-8 h-8 text-slate-400 mx-auto" />
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">
+              No updates have been published yet. Check back soon!
+            </h3>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto">
+              News and announcements about our book drives, school distributions, and community events will appear here once published.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.slice(0, 3).map((post) => (
+              <article
+                key={post.id}
+                onClick={() => onSelectPost(post)}
+                className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer group"
+              >
+                <div className="h-48 w-full relative overflow-hidden bg-slate-900">
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20">
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                    <span>•</span>
-                    <span>{post.author}</span>
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                      <span>•</span>
+                      <span>{post.author}</span>
+                    </div>
+
+                    <h3 className="font-bold text-slate-900 dark:text-white text-base group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-3">
+                      {post.summary}
+                    </p>
                   </div>
 
-                  <h3 className="font-bold text-slate-900 dark:text-white text-base group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed line-clamp-3">
-                    {post.summary}
-                  </p>
+                  <div className="pt-2 flex items-center justify-between text-xs font-semibold text-blue-600 dark:text-blue-400">
+                    <span>Read Full Story</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-
-                <div className="pt-2 flex items-center justify-between text-xs font-semibold text-blue-600 dark:text-blue-400">
-                  <span>Read Full Story</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* TESTIMONIALS */}

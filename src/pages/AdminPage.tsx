@@ -17,8 +17,8 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   onSelectPost,
 }) => {
   // Login State
-  const [email, setEmail] = useState("turningpagestogetherofficial@gmail.com");
-  const [password, setPassword] = useState("8BWA8BWA!");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
@@ -216,27 +216,6 @@ export const AdminPage: React.FC<AdminPageProps> = ({
             </p>
           </div>
 
-          {/* Preset Credentials Banner for Convenience */}
-          <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs space-y-2">
-            <div className="font-bold text-blue-900 dark:text-blue-200 flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-              <span>Default Administrator Credentials:</span>
-            </div>
-            <div className="font-mono text-[11px] text-blue-800 dark:text-blue-300">
-              Email: <strong>turningpagestogetherofficial@gmail.com</strong><br />
-              Password: <strong>8BWA8BWA!</strong>
-            </div>
-            <button
-              onClick={() => {
-                setEmail("turningpagestogetherofficial@gmail.com");
-                setPassword("8BWA8BWA!");
-              }}
-              className="text-[11px] font-bold text-blue-600 dark:text-blue-400 underline"
-            >
-              Click here to pre-fill credentials
-            </button>
-          </div>
-
           {loginError && (
             <div className="p-3 rounded-xl bg-red-50 text-red-700 border border-red-200 text-xs font-medium">
               {loginError}
@@ -255,6 +234,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  placeholder="admin@turningpagestogether.org"
                   className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
                 />
               </div>
@@ -271,6 +251,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
                   className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
                 />
               </div>

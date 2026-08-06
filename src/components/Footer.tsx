@@ -7,10 +7,19 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
   const [modalType, setModalType] = useState<"privacy" | "terms" | null>(null);
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
 
   const handleNav = (page: string) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterSubscribed(true);
+    setNewsletterEmail("");
   };
 
   return (
@@ -133,21 +142,29 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <p className="text-xs text-slate-400 leading-normal">
               Receive inspiring monthly stories, book drive highlights, and volunteer callouts.
             </p>
-            <form onSubmit={(e) => { e.preventDefault(); alert("Thank you for joining our newsletter list!"); }} className="space-y-2">
-              <input
-                type="email"
-                required
-                placeholder="Enter your email"
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-              />
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-1"
-              >
-                <span>Subscribe</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
-            </form>
+            {newsletterSubscribed ? (
+              <div className="p-3 rounded-xl bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-xs font-medium">
+                Thank you for joining our newsletter list!
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-1"
+                >
+                  <span>Subscribe</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            )}
           </div>
 
         </div>

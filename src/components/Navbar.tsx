@@ -101,9 +101,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="dark-mode-toggle-desktop"
               onClick={() => setDarkMode(!darkMode)}
               aria-label="Toggle dark mode"
-              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 active:scale-90"
             >
-              {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-90 scale-100" />
+              ) : (
+                <Moon className="w-5 h-5 text-slate-700 dark:text-slate-200 transition-transform duration-300 rotate-0 hover:-rotate-45 scale-100" />
+              )}
             </button>
 
             {/* Admin Portal Shortcut */}
@@ -139,7 +143,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="dark-mode-toggle-mobile"
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg text-slate-600 dark:text-slate-300"
+              aria-label="Toggle dark mode"
+              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 active:scale-90"
             >
               {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
             </button>
